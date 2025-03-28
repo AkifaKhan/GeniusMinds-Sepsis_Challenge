@@ -1,0 +1,6 @@
+Inference time: 0.291872 seconds
+Number of patients: 538
+Average time per patient: 0.000543 seconds
+Additional Memory Usage: 0.67 MB
+Additional CPU Time: 0.28 seconds
+Parsimony Score: 1.0000

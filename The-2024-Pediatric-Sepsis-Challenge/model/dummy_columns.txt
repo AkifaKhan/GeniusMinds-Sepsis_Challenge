@@ -1,0 +1,102 @@
+agecalc_adm
+height_cm_adm
+hr_bpm_adm
+lengthadm
+glucose_mmolpl_adm
+rr_brpm_app_adm
+diasbp_mmhg_adm
+hematocrit_gpdl_adm
+weight_kg_adm
+muac_mm_adm
+sysbp_mmhg_adm
+temp_c_adm
+lactate_mmolpl_adm
+spo2site2_pc_oxi_adm
+sqi2_perc_oxi_adm
+momage_adm
+householdsize_adm
+momagefirstpreg_adm
+sqi1_perc_oxi_adm
+spo2site1_pc_oxi_adm
+alivechildren_adm
+deadchildren_adm
+bcsverbal_adm_Cries appropriately with pain, or, if verbal, speaks
+bcsverbal_adm_Moan or abnormal cry with pain
+bcsverbal_adm_No vocal response to pain
+exclbreastfed_adm_1 month
+exclbreastfed_adm_2 months
+exclbreastfed_adm_3 months
+exclbreastfed_adm_4 months
+exclbreastfed_adm_5 months
+exclbreastfed_adm_6 months
+exclbreastfed_adm_Currently exclusively breastfed
+exclbreastfed_adm_More than 6 months
+exclbreastfed_adm_Unknown
+exclbreastfed_adm_never exclusively breastfed
+bcseye_adm_Fails to watch or follow
+bcseye_adm_Watches or follows
+bcsmotor_adm_Localizes painful stimulus
+bcsmotor_adm_No response or inappropriate response
+bcsmotor_adm_Withdraws limb from painful stimulus
+spo2onoxy_adm_No
+spo2onoxy_adm_Yes
+feedingstatus_adm_Feeding poorly
+feedingstatus_adm_Feeding well
+feedingstatus_adm_Not feeding at all
+totalbreastfed_adm_0-3 months
+totalbreastfed_adm_4-6 months
+totalbreastfed_adm_7-12 months
+totalbreastfed_adm_>12 months
+totalbreastfed_adm_Still being breastfed
+totalbreastfed_adm_Unknown
+oxygenavail_adm_Oxygen available and being used
+oxygenavail_adm_Oxygen available and not being used
+oxygenavail_adm_Oxygen available but not enough
+oxygenavail_adm_Oxygen not available
+watersource_adm_Bore hole
+watersource_adm_Fast running water
+watersource_adm_Municipal water
+watersource_adm_Open source (unprotected, stagnant water, dam)
+watersource_adm_Protected spring
+watersource_adm_Slow running water
+vaccdpt_adm_0 doses
+vaccdpt_adm_1 dose
+vaccdpt_adm_2 doses
+vaccdpt_adm_3 doses
+vaccdpt_adm_Unknown
+lightfuel_adm_Battery-powered light
+lightfuel_adm_Candles
+lightfuel_adm_Electric bulbs (national grid)
+lightfuel_adm_Kerosene lamp
+lightfuel_adm_Other (specify):
+lightfuel_adm_Solar lantern
+lightfuel_adm_Solar powered bulbs
+lightfuel_adm_Tadooba
+deliveryloc_adm_Clinic
+deliveryloc_adm_Health centre
+deliveryloc_adm_Home
+deliveryloc_adm_Hospital
+deliveryloc_adm_Other
+bednet_adm_Always
+bednet_adm_Never
+bednet_adm_Sometimes
+diarrheaoften_adm_Dont know
+diarrheaoften_adm_No
+diarrheaoften_adm_Yes
+vaccpneumoc_adm_0 doses
+vaccpneumoc_adm_1 dose
+vaccpneumoc_adm_2 doses
+vaccpneumoc_adm_3 doses
+vaccpneumoc_adm_Unknown
+priorweekantimal_adm_Dont know
+priorweekantimal_adm_No
+priorweekantimal_adm_Yes
+priorweekabx_adm_Dont know
+priorweekabx_adm_No
+priorweekabx_adm_Yes
+bcgscar_adm_No
+bcgscar_adm_Yes
+malariastatuspos_adm_No
+malariastatuspos_adm_Yes
+waterpure_adm_No
+waterpure_adm_Yes
