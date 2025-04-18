@@ -16,11 +16,7 @@ import mne
 from sklearn.impute import SimpleImputer
 from sklearn.ensemble import RandomForestClassifier
 import joblib
-from imblearn.over_sampling import SMOTE
-from sklearn.ensemble import StackingClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.naive_bayes import GaussianNB
-from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from imblearn.over_sampling import BorderlineSMOTE
 
 
 ################################################################################
@@ -54,17 +50,7 @@ def train_challenge_model(data_folder, model_folder, verbose):
     # ================================
     # For example, the team may select a subset of variables. Put your feature selection code if needed. Here, we simply use all raw columns.
 
-    selected_variables = ['agecalc_adm','height_cm_adm','hr_bpm_adm','glucose_mmolpl_adm','diasbp_mmhg_adm',
-                        'weight_kg_adm','bcseye_adm','sysbp_mmhg_adm','rr_brpm_app_adm','lactate_mmolpl_adm',
-                        'hematocrit_gpdl_adm','bcsverbal_adm','temp_c_adm','spo2site2_pc_oxi_adm',
-                        'exclbreastfed_adm','feedingstatus_adm','watersource_adm','deadchildren_adm',
-                        'spo2site1_pc_oxi_adm','deliveryloc_adm','priorweekantimal_adm','malariastatuspos_adm',
-                        'vaccdpt_adm','waterpure_adm','sex_adm','sqi2_perc_oxi_adm','respdistress_adm','muac_mm_adm',
-                        'momage_adm','birthdetail_adm___5','birthdetail_adm___4','vaccpneumoc_adm','birthdetail_adm___1',
-                        'birthdetail_adm___2','birthdetail_adm___3','sqi1_perc_oxi_adm','oxygenavail_adm',
-                        'symptoms_adm___3','priorweekabx_adm','bcsmotor_adm','bcgscar_adm','symptoms_adm___9',
-                        'symptoms_adm___11']
-    data = data[selected_variables]
+    selected_variables = list(data.columns)
 
     # Save the selected features to file.
     with open(os.path.join(model_folder, 'selected_variables.txt'), 'w') as f:
@@ -91,46 +77,37 @@ def train_challenge_model(data_folder, model_folder, verbose):
     # Train the models.
     data_imputed = imputer.transform(data)
   # ================================
-    # Oversampling using SMOTE
+    # Oversampling
     # ================================
+
+# Step 1: Show original class distribution
     if verbose >= 1:
         print('Original class distribution:')
         print(pd.Series(label.ravel()).value_counts())
 
-    smote = SMOTE(sampling_strategy=0.25, random_state=42)  # 20–80 split => 0.25 minority:majority
-    X_resampled, y_resampled = smote.fit_resample(data_imputed, label.ravel())
+# Step 2: Apply Borderline-SMOTE with sampling_strategy=0.3
+    bl_smote = BorderlineSMOTE(sampling_strategy=0.25, random_state=42)
+    X_resampled, y_resampled = bl_smote.fit_resample(data_imputed, label.ravel())
 
+# Step 3: Show new class distribution
     if verbose >= 1:
-        print('After SMOTE class distribution:')
+        print('After Borderline-SMOTE class distribution (25% minority):')
         print(pd.Series(y_resampled).value_counts())
+
 
     # ================================
     # Train RandomForest
     # ================================
-    base_learners = [
-        ('nb', GaussianNB()),
-        ('rf', RandomForestClassifier(n_estimators=100, random_state=42)),
-        ('gb', GradientBoostingClassifier(n_estimators=100, random_state=42))
-]
+    prediction_model = RandomForestClassifier(n_estimators=100, random_state=42)
 
-# Meta learner
-    meta_learner = LogisticRegression()
-
-# Stacking classifier
-    prediction_model = StackingClassifier(
-        estimators=base_learners,
-        final_estimator=meta_learner,
-        cv=5,
-        n_jobs=-1
-)
-
-# Train on resampled data
+# Fit the model on SMOTE-resampled data
     prediction_model.fit(X_resampled, y_resampled)
+
 # Save the model
     save_challenge_model(model_folder, imputer, prediction_model, selected_variables, dummy_columns)
 
     if verbose >= 1:
-        print('Stacked model training complete!')
+        print('Model Training complete!')
         
 # Load your trained models. This function is *required*. You should edit this function to add your code, but do *not* change the
 # arguments of this function.
@@ -213,11 +190,4 @@ def save_challenge_model(model_folder, imputer, prediction_model, selected_varia
     }
     filename = os.path.join(model_folder, 'model.sav')
     joblib.dump(d, filename, protocol=0)
-
-
-
-
-
-
-
 
