@@ -16,7 +16,9 @@ Sepsis is a life-threatening medical condition that requires early and accurate 
      git clone (https://github.com/AkifaKhan/GeniusMinds-Sepsis_Challenge)
 ### 2. Run with Docker (recommended)
 Ensure Docker and Docker Compose are installed.
+
      docker-compose up --build
+     
 This will spin up a container that runs the complete pipeline including data loading, training, and evaluation.
 
 ## Dataset
