@@ -14,13 +14,13 @@ Sepsis is a life-threatening medical condition that requires early and accurate 
 
 ### 1. Clone the repository
 ```bash
-git clone (https://github.com/AkifaKhan/GeniusMinds-Sepsis_Challenge)
-2. Run with Docker (recommended)
+   git clone (https://github.com/AkifaKhan/GeniusMinds-Sepsis_Challenge)
+**2. Run with Docker (recommended)**
 Ensure Docker and Docker Compose are installed.
 docker-compose up --build
 This will spin up a container that runs the complete pipeline including data loading, training, and evaluation.
 
-3. Run Locally (without Docker)
+**3. Run Locally (without Docker)**
 Create a virtual environment and install dependencies:
 
 python -m venv venv
@@ -30,7 +30,7 @@ venv\Scripts\activate     # For Windows
 pip install -r requirements.txt
 python src/team_code.py
 
-### Dataset
+**### Dataset**
 The dataset used in this project is synthetic patient data provided as part of a sepsis prediction challenge. The data simulates patient records from hospitals in Uganda and includes features such as vital signs, lab values, and clinical assessments.
 
 Note: Due to privacy concerns, the data is synthetic but follows the statistical characteristics of real-world clinical data.
