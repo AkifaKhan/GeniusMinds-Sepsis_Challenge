@@ -27,11 +27,8 @@ This project is built around the 2024 Pediatric Sepsis Data Challenge, a global 
 The aim of the challenge is to develop open-source algorithms to predict in-hospital mortality in children aged 6 to 60 months who were admitted with suspected or confirmed sepsis across six Ugandan hospitals between 2017 and 2020.
 
 The training dataset provided is synthetic, generated from a random subset of real clinical data, and is used to train and tune models.
-
 The test dataset is non-synthetic, used for evaluation based on standard diagnostic criteria (e.g., AUC, sensitivity, specificity).
-
 The complete dataset includes 3,837 pediatric patient records with clinical and vital signs information.
-
 The overarching goal is to develop robust, generalizable algorithms that could improve sepsis outcomes in low- and middle-income countries (LMICs) through data-driven clinical decision support.
 
 This repository contributes a Dockerized machine learning pipeline using Enhanced Grey Wolf Optimization (E-GWO) for model tuning, with the potential to aid in global health research and clinical implementation.
